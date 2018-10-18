@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Drum Machine</title>
+
+<style>
+
+body, html {
+  height: 90%;
+
+}
+
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  grid-gap: 10px;
+  background-color: #fff;
+  color: #444;
+   padding-left : 500px;
+   padding-top: 40px;
+}
+
+.drum-pad {
+  background-color: #444;
+  color: #fff;
+  border-radius: 5px;
+  padding: 50px;
+  font-size: 20px;
+
+}
+
+.keyText{
+   padding-left : 600px;
+   padding-top: 100px;
+   font-size: 30px;
+}
+  
+
+</style>
+
+ 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.5.1/marked.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.5.1/marked.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.5.1/marked.min.js.map"></script>
+
+ <script type="text/babel">
+
+
+
+class Control extends React.Component {
+  constructor(props) {
+       super(props);
+       this.state = {
+       keyNote: ''
+     }
+         this.keyPress = this.keyPress.bind(this);
+         this.changeM = this.changeM.bind(this);
+  }
+
+  componentWillMount() {
+      document.addEventListener("keydown", this.keyPress);
+  }
+
+  componentWillUnmount() {
+      document.removeEventListener("keydown", this.keyPress);
+  }   
+  
+ changeM (event) {  
+   for(let key in allKey){
+   if(event.target.id == allKey[key].keyTrigger){
+   this.url = allKey[key].url 
+   this.audio = new Audio(this.url)
+   this.audio.play()
+     this.setState({
+    keyNote: event.target.id + " : " + allKey[key].id 
+  });
+  }
+}
+}
+
+keyPress  (event) {
+for(let key in allKey){
+   if(event.keyCode == allKey[key].keyCode){
+   this.url = allKey[key].url 
+   this.audio = new Audio(this.url)
+   this.audio.play()
+     this.setState({
+    keyNote: allKey[key].keyTrigger  + " : " + allKey[key].id 
+  });
+  }
+}  
+}
+
+  render() {
+
+    return (
+ <div  id="drum-machine">
+<div className="keyText" id="display" onKeyDown={this.keyPress}  tabIndex="0" >{this.state.keyNote}</div>
+  <div className="wrapper" id="display">
+<div  onClick={this.changeM} className="drum-pad" id="Q" ><audio id="Q" className="clip" src=''></audio> Q</div>
+<div  onClick={this.changeM}  className="drum-pad" id="W">  <audio id="W" className="clip" src=''></audio>W</div>
+<div  onClick={this.changeM} className="drum-pad" id="E"><audio id="E" className="clip" src=''></audio>E</div>
+<div  onClick={this.changeM} className="drum-pad" id="A"><audio id="A" className="clip" src=''></audio>A</div>
+<div  onClick={this.changeM}  className="drum-pad" id="S"><audio id="S" className="clip" src=''></audio>S</div>
+<div  onClick={this.changeM} className="drum-pad" id="D">  <audio id="D" className="clip" src=''></audio>D</div>
+<div  onClick={this.changeM}  className="drum-pad" id="Z">  <audio id="Z" className="clip" src=''></audio>Z</div>
+<div  onClick={this.changeM}   className="drum-pad" id="X"><audio id="X" className="clip" src=''></audio>X</div>
+<div  onClick={this.changeM}  className="drum-pad" id="C"> <audio id="C" className="clip" src=''></audio>C</div>
+ </div>
+</div>
+    )
+  }
+}
+
+
+
+const allKey = [{
+    keyCode: 81,
+    keyTrigger: 'Q',
+    id: 'Heater-1',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3'
+  }, {
+    keyCode: 87,
+    keyTrigger: 'W',
+    id: 'Heater-2',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3'
+  }, {
+    keyCode: 69,
+    keyTrigger: 'E',
+    id: 'Heater-3',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3'
+  }, {
+    keyCode: 65,
+    keyTrigger: 'A',
+    id: 'Heater-4',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3'
+  }, {
+    keyCode: 83,
+    keyTrigger: 'S',
+    id: 'Clap',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3'
+  }, {
+    keyCode: 68,
+    keyTrigger: 'D',
+    id: 'Open-HH',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3'
+  }, {
+    keyCode: 90,
+    keyTrigger: 'Z',
+    id: "Kick-n'-Hat",
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3'
+  }, {
+    keyCode: 88,
+    keyTrigger: 'X',
+    id: 'Kick',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3'
+  }, {
+    keyCode: 67,
+    keyTrigger: 'C',
+    id: 'Closed-HH',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3'
+  }];
+
+
+
+
+ReactDOM.render(
+  <Control />,
+  document.getElementById('root')
+);
+
+</script>
+
+
+</head>
+
+<body> 
+
+<div id="root"></div>
+
+</body>
+</html>
