@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Previewer</title>
+
+<style>
+
+body, html {
+  height: 90%;
+}
+    .left {
+        float: left;
+        width: 90%;
+        padding: 50px;
+        min-height: 700px;
+  resize: none;
+    }
+    .right {
+        float: right;
+        width: 100%;
+min-height: 700px;
+  resize: none;
+
+    }
+
+  
+
+</style>
+
+ 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.5.1/marked.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.5.1/marked.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.5.1/marked.min.js.map"></script>
+
+ <script type="text/babel">
+
+
+
+
+
+class Control extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+    markdown: placeholder
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({
+    markdown: event.target.value
+  });
+  }
+
+ 
+  render() {
+
+    return (
+    <div className="row">
+        <div className="col-md-6 col-xs-12">
+          <h1 className="text-center">Editor</h1>
+     <Editor markdown={this.state.markdown} 
+     onChange={this.handleChange} />
+   </div>
+
+  <div className="col-md-6 col-xs-12">
+          <h1 className="text-center">Previewer</h1>
+           <Preview  markdown={this.state.markdown}  />
+        </div>
+   </div>
+
+
+    );
+  }
+}
+
+marked.setOptions({
+  breaks: true
+});
+
+const renderer = new marked.Renderer();
+renderer.link = function (href, title, text) {
+  return `<a target="_blank" href="${href}">${text}` + '</a>';
+}
+
+const Editor = (props) => {
+  return (
+     <textarea className="left" id="editor" 
+value={props.markdown}
+      onChange={props.onChange}
+      type="text"
+      />
+    )
+}
+
+const Preview = (props) => {
+  return (
+ <div className="right"  id="preview" readOnly dangerouslySetInnerHTML={{__html: marked(props.markdown, { renderer: renderer })}}
+ />
+    )
+}
+
+
+
+const placeholder = `# Welcome to my React Markdown Previewer!
+
+## This is a sub-heading...
+### And here's some other cool stuff:
+  
+Heres some code, \`<div></div>\`, between 2 backticks.
+
+\`\`\`
+// this is multi-line code:
+
+function anotherExample(firstLine, lastLine) {
+  if (firstLine == '\`\`\`' && lastLine == '\`\`\`') {
+    return multiLineCode;
+  }
+}
+\`\`\`
+  
+You can also make text **bold**... whoa!
+Or _italic_.
+Or... wait for it... **_both!_**
+And feel free to go crazy ~~crossing stuff out~~.
+
+There's also [links](https://www.freecodecamp.com), and
+> Block Quotes!
+
+And if you want to get really crazy, even tables:
+
+Wild Header | Crazy Header | Another Header?
+------------ | ------------- | ------------- 
+Your content can | be here, and it | can be here....
+And here. | Okay. | I think we get it.
+
+- And of course there are lists.
+  - Some are bulleted.
+     - With different indentation levels.
+        - That look like this.
+
+
+1. And there are numbererd lists too.
+1. Use just 1s if you want! 
+1. But the list goes on...
+- Even if you use dashes or asterisks.
+* And last but not least, let's not forget embedded images:
+
+![React Logo w/ Text](https://goo.gl/Umyytc)
+`
+
+
+
+ReactDOM.render(
+  <Control />,
+  document.getElementById('root')
+);
+
+    </script>
+
+   
+
+
+</head>
+
+<body> 
+
+<div id="root">
+
+</div>
+
+
+
+
+
+</body>
+</html>
