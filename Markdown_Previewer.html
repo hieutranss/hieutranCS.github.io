@@ -8,22 +8,31 @@
 body, html {
   height: 90%;
 }
+
     .left {
         float: left;
-        width: 90%;
+        width: 100%;
         padding: 50px;
+        min-width: 500px;
         min-height: 700px;
   resize: none;
     }
+
     .right {
         float: right;
         width: 100%;
 min-height: 700px;
   resize: none;
-
     }
 
-  
+.rowButton{
+ display: grid;
+  grid-template-columns: 100px 100px 100px;
+  grid-gap: 10px;
+   padding-left : 700px;
+}
+
+
 
 </style>
 
@@ -32,20 +41,15 @@ min-height: 700px;
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-dom.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.5.1/marked.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.5.1/marked.min.js"></script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.5.1/marked.min.js.map"></script>
 
  <script type="text/babel">
-
-
-
-
 
 class Control extends React.Component {
   constructor(props) {
@@ -67,18 +71,25 @@ class Control extends React.Component {
   render() {
 
     return (
+     
+   <div>
+   <div className="rowButton">
+  <button className="btn btn-outline-dark"  id="button"><a href="index.html"><h2>Back</h2></a></button> 
+  </div>
+  
+
     <div className="row">
         <div className="col-md-6 col-xs-12">
-          <h1 className="text-center">Editor</h1>
+ <h1 className="text-center">Editor </h1>
      <Editor markdown={this.state.markdown} 
      onChange={this.handleChange} />
    </div>
-
   <div className="col-md-6 col-xs-12">
           <h1 className="text-center">Previewer</h1>
            <Preview  markdown={this.state.markdown}  />
         </div>
    </div>
+</div>
 
 
     );
@@ -177,6 +188,9 @@ ReactDOM.render(
 <body> 
 
 <div id="root">
+
+
+
 
 </div>
 
