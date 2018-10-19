@@ -10,6 +10,7 @@ body, html {
 
 }
 
+
 .wrapper {
   display: grid;
   grid-template-columns: 100px 100px 100px;
@@ -18,6 +19,8 @@ body, html {
   color: #444;
    padding-left : 500px;
    padding-top: 40px;
+     background-color: #80cbc4;
+
 }
 
  
@@ -34,11 +37,10 @@ body, html {
    padding-left : 550px;
    font-size: 30px;
 }
-  
+
 
 </style>
 
- 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -56,10 +58,12 @@ class Control extends React.Component {
   constructor(props) {
        super(props);
        this.state = {
-       keyNote: ''
+       keyNote: '',
+       volume : 0.5
      }
          this.keyPress = this.keyPress.bind(this);
          this.changeM = this.changeM.bind(this);
+         this.adjustVolume = this.adjustVolume.bind(this);
   }
 
   componentWillMount() {
@@ -75,6 +79,7 @@ class Control extends React.Component {
    if(event.target.id == allKey[key].keyTrigger){
    this.url = allKey[key].url 
    this.audio = new Audio(this.url)
+   this.audio.volume = this.state.volume
    this.audio.play()
      this.setState({
     keyNote: event.target.id + " : " + allKey[key].id 
@@ -83,11 +88,18 @@ class Control extends React.Component {
 }
 }
 
+adjustVolume(event){
+	this.setState({
+		volume: event.target.value
+	})
+}
+
 keyPress  (event) {
 for(let key in allKey){
    if(event.keyCode == allKey[key].keyCode){
    this.url = allKey[key].url 
    this.audio = new Audio(this.url)
+      this.audio.volume = this.state.volume
    this.audio.play()
      this.setState({
     keyNote: allKey[key].keyTrigger  + " : " + allKey[key].id 
@@ -101,7 +113,13 @@ for(let key in allKey){
     return (
  <div  id="drum-machine">
 <div className="keyText" id="display" onKeyDown={this.keyPress}  tabIndex="0" >{this.state.keyNote}</div>
+ 
   <div className="wrapper" id="display">
+  <div> </div>
+<div className="volume-slider">
+	<input type="range" min="0" max="1" step="0.1"  onChange={this.adjustVolume} />
+		</div>
+		<div></div>
 <div  onClick={this.changeM} className="drum-pad" id="Q" ><audio id="Q" className="clip" src=''></audio> Q</div>
 <div  onClick={this.changeM}  className="drum-pad" id="W">  <audio id="W" className="clip" src=''></audio>W</div>
 <div  onClick={this.changeM} className="drum-pad" id="E"><audio id="E" className="clip" src=''></audio>E</div>
@@ -111,7 +129,7 @@ for(let key in allKey){
 <div  onClick={this.changeM}  className="drum-pad" id="Z">  <audio id="Z" className="clip" src=''></audio>Z</div>
 <div  onClick={this.changeM}   className="drum-pad" id="X"><audio id="X" className="clip" src=''></audio>X</div>
 <div  onClick={this.changeM}  className="drum-pad" id="C"> <audio id="C" className="clip" src=''></audio>C</div>
-  <button class="btn btn-outline-dark"><a href="index.html">Back</a></button> 
+  <button className="btn btn-outline-dark"><a href="index.html">Back</a></button> 
  </div>
 </div>
 
