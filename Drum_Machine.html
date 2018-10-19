@@ -38,6 +38,13 @@ body, html {
    font-size: 30px;
 }
 
+.volumeText{
+  border-radius: 5px;
+  text-align: center;
+  font-size: 20px;
+}
+
+
 
 </style>
 
@@ -115,10 +122,10 @@ for(let key in allKey){
 <div className="keyText" id="display" onKeyDown={this.keyPress}  tabIndex="0" >{this.state.keyNote}</div>
  
   <div className="wrapper" id="display">
-  <div> </div>
+  <div className="volumeText">  Volume :</div>
 <div className="volume-slider">
 	<input type="range" min="0" max="1" step="0.1"  onChange={this.adjustVolume} />
-		</div>
+	</div>
 		<div></div>
 <div  onClick={this.changeM} className="drum-pad" id="Q" ><audio id="Q" className="clip" src=''></audio> Q</div>
 <div  onClick={this.changeM}  className="drum-pad" id="W">  <audio id="W" className="clip" src=''></audio>W</div>
