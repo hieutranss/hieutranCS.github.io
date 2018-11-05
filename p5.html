@@ -130,6 +130,7 @@ constructor(props) {
   runningBreak(){
     var newCount = this.state.timerBreak - 1
     
+    this.audioBeep.volume = 0.3
   	this.audioBeep.play()
   
   if(this.state.num > 4){
