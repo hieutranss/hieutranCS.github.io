@@ -79,6 +79,7 @@ constructor(props) {
       break: 5,
       session : 25,
       timer : 1500,
+      num : 0,
       timerBreak : 300,
       name : "Session"
     };
@@ -128,14 +129,20 @@ constructor(props) {
 
   runningBreak(){
     var newCount = this.state.timerBreak - 1
-     this.url = 'beep.mp3' 
-   this.audio = new Audio(this.url)
-     this.audio.volume = 0.3
-   this.audio.play()
+    
+  	this.audioBeep.play()
+  
+  if(this.state.num > 4){
+  	this.audioBeep.pause()
+  	this.audioBeep.currentTime = 0
+  }
+  console.log(this.state.num)
+
    if(newCount >= 0) { 
        this.setState({
         timer: newCount,
-        timerBreak : newCount
+        timerBreak : newCount,
+        num : this.state.num + 1
          });
    }
     else{
@@ -149,6 +156,7 @@ constructor(props) {
       this.start()
    }
   }
+
 
   pause(){
     clearInterval(this.state.end) 
@@ -170,12 +178,15 @@ constructor(props) {
   reset(){
      clearInterval(this.state.end) 
      clearInterval(this.state.endBreak)
+     this.audioBeep.pause()
+  	this.audioBeep.currentTime = 0
      this.setState({
      break: 5,
      name : 'Session',
       session : 25,
       timer : 1500,
       timerBreak : 300,
+      nameColor : 'white',
    colorS : 'white',
       colorP : 'white',
       colorR : '#c7a2d8',
@@ -259,9 +270,11 @@ constructor(props) {
 </div>
    </div>
 </div>
-        <div id="timer-label" className="inner-show" style={{backgroundColor:this.state.nameColor}}>  
+        <div id="timer-label" className="inner-show" style={{backgroundColor:this.state.nameColor}}> 
+           <audio id="beep" preload="auto" src="beep.mp3"
+           ref={(audio) => { this.audioBeep = audio; }} /> 
          <div id="timer-label" > {this.state.name}  </div>
-         <div id="timer-left"><audio id="beep"></audio>{clock} </div>
+         <div id="timer-left"> {clock} </div>
          </div>
 
   <div className="inner-bottom">     
