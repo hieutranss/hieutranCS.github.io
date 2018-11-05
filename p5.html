@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Pomodoro Clock</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  </head>
+
+<style >
+
+body {
+  background: #F6F6F6;
+  padding-bottom: 30px;
+  padding-top: 100px;  
+}
+.clock   {
+  max-width: 600px;
+  margin: 0 auto;
+  border: 2px solid #111;
+  border-radius: 5px;
+}
+
+.main-clock {
+  padding: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.inner   {
+  grid-column: span 2;
+}
+
+.inner-show{
+  grid-column: span 4; 
+   text-align: center;
+}
+
+.inner-bottom{
+   grid-column: span 5; 
+}
+
+.title{
+  padding-top: 15px;
+  text-align:center;
+}
+
+#inner-break{
+  padding-left : 30px
+}
+
+#inner-session{
+  padding-left : 30px
+}
+
+.btn-outline-dark{
+padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 15px;
+  margin: 0 auto;
+}
+
+</style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.5.1/marked.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.5.1/marked.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.5.1/marked.min.js.map"></script>
+
+<script type="text/babel">
+
+class Control extends React.Component {
+constructor(props) {
+    super(props);
+    this.state = {
+      break: 5,
+      session : 25,
+      timer : 1500,
+      timerBreak : 300,
+      name : "Session"
+    };
+    this.running = this.running.bind(this)
+    this.runningBreak = this.runningBreak.bind(this)
+    this.start = this.start.bind(this)
+    this.pause = this.pause.bind(this)
+    this.reset = this.reset.bind(this)
+   this.upS = this.upS.bind(this)  
+    this.downS = this.downS.bind(this)
+      this.upB = this.upB.bind(this)  
+      this.downB = this.downB.bind(this)
+  }
+
+  running(){
+ var newCount = this.state.timer - 1
+   if(newCount >= 0) { 
+       this.setState({
+        timer: newCount,
+         });
+   }
+   else{
+      clearInterval(this.state.end) 
+          this.startBreak()
+   }
+  }
+
+  start(){
+      var end = setInterval(this.running, 1000)
+   this.setState({
+    end: end,
+    colorS : '#42f47a',
+      colorP : 'white',
+      colorR : 'white',
+  });
+ }
+
+  startBreak(){
+     var endBreak = setInterval(this.runningBreak, 1000)
+   this.setState({
+       name : "Break",
+       nameColor : '#ede89a',
+      endBreak : endBreak,
+      timer : this.state.timerBreak
+  });
+  }
+
+  runningBreak(){
+    var newCount = this.state.timerBreak - 1
+     this.url = 'beep.mp3' 
+   this.audio = new Audio(this.url)
+     this.audio.volume = 0.3
+   this.audio.play()
+   if(newCount >= 0) { 
+       this.setState({
+        timer: newCount,
+        timerBreak : newCount
+         });
+   }
+    else{
+      clearInterval(this.state.endBreak)   
+      this.setState({
+        timer: this.state.session * 60 ,
+        timerBreak : this.state.break * 60,
+        name : "Session",
+        nameColor : 'white'
+         });
+      this.start()
+   }
+  }
+
+  pause(){
+    clearInterval(this.state.end) 
+     this.setState({
+    colorS : 'white',
+      colorP : '#b2f441',
+      colorR : 'white',
+  });
+  }
+
+ clock(time) {
+    var seconds = time % 60
+    var minutes = Math.floor(time / 60)
+    minutes = minutes.toString().length === 1 ? "0" + minutes : minutes
+    seconds = seconds.toString().length === 1 ? "0" + seconds : seconds
+    return minutes + ':' + seconds
+  }
+  
+  reset(){
+     clearInterval(this.state.end) 
+     clearInterval(this.state.endBreak)
+     this.setState({
+     break: 5,
+     name : 'Session',
+      session : 25,
+      timer : 1500,
+      timerBreak : 300,
+   colorS : 'white',
+      colorP : 'white',
+      colorR : '#c7a2d8',
+  });
+  }
+
+  upS(){
+    var value = this.state.session + 1
+    if(value > 60){
+       value = 60
+    }
+    var timeConvert = value * 60
+    this.setState({
+      session : value,
+      timer : timeConvert,
+    })
+  }
+
+  downS(){
+ var value = this.state.session - 1
+ if(value <= 0){
+  value = 1
+ }
+  var timeConvert = value * 60
+    this.setState({
+      session : value,
+      timer : timeConvert
+    })
+  }
+
+  upB(){
+  var value = this.state.break + 1
+  if(value > 60){
+       value = 60
+    }
+      var timeConvert = value * 60
+   this.setState({
+      break : value,
+      timerBreak : timeConvert
+    })
+  }
+
+  downB(){
+  var value = this.state.break - 1
+  if(value <= 0){
+  value = 1
+ }
+   var timeConvert = value * 60
+ this.setState({
+      break : value,
+      timerBreak : timeConvert
+    })
+  }
+
+
+  render() {
+    var clock = this.clock(this.state.timer)
+ 
+   return(
+       <div className="clock">
+       <h2 className="title"> Pomodoro Clock  </h2>
+  <div className="main-clock">
+
+   <div id="break-label" className="inner"> <h3>Break Length </h3>
+   <div className="containter" id="inner-break">      
+   <div className="row" >
+     <div id="break-increment" className="col col-lg-1" onClick={this.upB}>    up    </div>
+     <div id="break-length" className="col col-lg-1">{this.state.break} </div>
+     <div id="break-decrement" className="col col-lg-1" onClick={this.downB}>    down    </div>
+</div>
+</div>
+ </div>
+
+
+    <div id="session-label" className="inner"> <h3>Session Length </h3>     
+    <div className="containter" id="inner-session"> 
+    <div className="row">
+     <div id="session-increment" className="col col-lg-1" onClick={this.upS}>   up     </div>
+    <div id="session-length" className="col col-lg-1">  {this.state.session} </div>
+     <div id="session-decrement" className="col col-lg-1" onClick={this.downS}>   down     </div>
+</div>
+   </div>
+</div>
+        <div id="timer-label" className="inner-show" style={{backgroundColor:this.state.nameColor}}>  
+         <div id="timer-label" > {this.state.name}  </div>
+         <div id="timer-left"><audio id="beep"></audio>{clock} </div>
+         </div>
+
+  <div className="inner-bottom">     
+    <div className="row justify-content-md-center">
+     <div id="start_stop" className="col col-lg-2" onClick={this.start} style={{backgroundColor:this.state.colorS}} >start </div>
+     <div id="pause" className="col col-lg-2" onClick={this.pause} style={{backgroundColor:this.state.colorP}}> pause </div>
+    <div id="reset" className="col col-lg-2" onClick={this.reset} style={{backgroundColor:this.state.colorR}}>  reset </div>
+   </div>
+</div>
+
+
+  </div>
+    <button className="btn btn-outline-dark"><a href="index.html">Back</a></button> 
+  </div>
+
+)
+}
+}
+    
+ReactDOM.render(
+  <Control />,
+  document.getElementById('root')
+);
+
+</script>
+
+
+<body>
+
+<div id="root"> </div>
+
+ <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+ </body>
+</html>
