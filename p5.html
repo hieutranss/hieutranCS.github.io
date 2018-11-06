@@ -137,7 +137,6 @@ constructor(props) {
   	this.audioBeep.pause()
   	this.audioBeep.currentTime = 0
   }
-  console.log(this.state.num)
 
    if(newCount >= 0) { 
        this.setState({
@@ -161,7 +160,13 @@ constructor(props) {
 
 
   pause(){
-    clearInterval(this.state.end) 
+    if(this.state.name == "Session"){
+    	clearInterval(this.state.end) 
+    }
+     else{
+      clearInterval(this.state.endBreak) 
+     }
+
      this.setState({
     colorS : 'white',
       colorP : '#b2f441',
