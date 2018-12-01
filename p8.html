@@ -61,12 +61,13 @@ var chart = d3.select('.holder')
   .attr('width', 1100)
   .attr('height', 600)
 
+
 var len = data.length
 
 var value = []
 for(var i =0; i < len ;i++){
-   var parsedTime = data[i].Time.split(':');
-    data[i].Time = new Date(Date.UTC(1970, 0, 1, 0, parsedTime[0], parsedTime[1]));
+   var parsedTime = data[i].Time.split(':')
+    data[i].Time = new Date(Date.UTC(1970, 0, 1, 0, parsedTime[0], parsedTime[1]))
 value.push( { Year : data[i].Year, Time: data[i].Time})
 }
   
@@ -186,6 +187,7 @@ var legend = chart.append('g')
 
 var text = chart.append('a')
                 .attr("xlink:href", "https://en.wikipedia.org/wiki/List_of_doping_cases_in_cycling")
+                .attr("xlink:show","new")
                 .append('text')
                 .text('Source')
                 .attr('fill','red')
