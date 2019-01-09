@@ -19,7 +19,7 @@ body {
 	text-align: center;
 	font-family: "Helvetica", sans-serif;
 	padding-top: 50px;  
-	background-image: url("animated1.gif");
+	background-image: url();
 	background-repeat: no-repeat;
 	background-position: 0 0;
 	background-size: cover;
@@ -53,7 +53,7 @@ body{
 #about{
 	font-family: Verdana, sans-serif;
 	font-size:15px;
-	color: yellow;
+	color: black;
 }
 
 
@@ -86,11 +86,11 @@ body{
 }
 
 .button{
- font-weight: bold;
-    color: white;
-    text-align: center;
-    background-color: Transparent;
-    cursor: pointer;
+	font-weight: bold;
+	color: black;
+	text-align: center;
+	background-color: Transparent;
+	cursor: pointer;
 }
 
 </style>
@@ -100,16 +100,27 @@ body{
 	$(document).ready(function(){
 		$('[data-toggle="tooltip"]').tooltip()   
 
+		$('#default_button').click(function() {
+			$("#about").css('color', 'black')
+			$(".button").css('color','black')
+		})
+
 		$('#button1').click(function() {
 			$("#about").css('color', 'yellow')
+			$(".button").css('color','white')
+
 		})
 
 		$('#button2').click(function() {
 			$("#about").css({'color': '#FC9602', "font-weight" : "bold"})
+			$(".button").css('color','white')
+
 		})
 
 		$('#button3').click(function() {
 			$("#about").css({'color': '#F007FF',"font-weight" : "bold"})
+			$(".button").css('color','white')
+
 		})
 
 
@@ -145,18 +156,17 @@ body{
 							<li class="list-item col-4 "><a href="p3.html" data-toggle="tooltip" data-placement="bottom" title="Using React to build a text box that let users translate any regular text format into HTML format">Convert Text into HTML</a></li>
 							<li  class="list-item col-4 "><a href="p4.html" data-toggle="tooltip" data-placement="bottom" title="Using React to build a simple Calculator">Calculator</a></li>
 							<li  class="list-item col-4"><a href="p5.html" data-toggle="tooltip" data-placement="bottom" title="Using React to build a clock that has both session and break, and it keeps running until the user hits either clear or pause button">Pomodoro Clock</a></li>
-							<li class="list-item col-4 "><a href="https://github.com/hieutranCS/Node.js" data-toggle="tooltip" data-placement="bottom" title="Using Node.js to create a custom module that lets users find the info from (Reddit) via command prompt">Node.js</a></li>
-							<li class="list-item col-4 "><a href="https://github.com/hieutranCS/Project-Compiler" data-toggle="tooltip" data-placement="bottom" title="Using Antlr4 to generate a java file from the text file">Antlr4</a></li>
-							<li class="list-item col-4 "><a href="https://github.com/hieutranCS/Node.js-Vue.js" data-toggle="tooltip" data-placement="bottom" title="Using Node.js and Vue.js to create a web page that has both server and client that lets users search the info on the browser">Node.js Vue.js</a></li>
-							<li class="list-item col-4 "><a href="https://github.com/hieutranCS/ndnwifi" data-toggle="tooltip" data-placement="bottom" title="Using android studio to create an app that lets users chat with others without relying on a wireless router">NDN wifi</a></li>
-							<li class="list-item col-4 "><a href="https://github.com/hieutranCS/homeAutomation" data-toggle="tooltip" data-placement="bottom" title="A software that lets users control every appliance via smart phone.">HomeAutomation</a></li>
+							<li class="list-item col-4 "><a href="https://github.com/hieutranCS/Node.js" data-toggle="tooltip" data-placement="bottom" title="Using Node.js to create a custom module that lets users find the info from (Reddit) via command prompt"  target="_blank">Node.js</a></li>
+							<li class="list-item col-4 "><a href="https://github.com/hieutranCS/Project-Compiler" data-toggle="tooltip" data-placement="bottom" title="Using Antlr4 to generate a java file from the text file"  target="_blank">Antlr4</a></li>
+							<li class="list-item col-4 "><a href="https://github.com/hieutranCS/Node.js-Vue.js" data-toggle="tooltip" data-placement="bottom" title="Using Node.js and Vue.js to create a web page that has both server and client that lets users search the info on the browser"  target="_blank">Node.js Vue.js</a></li>
+							<li class="list-item col-4 "><a href="https://github.com/hieutranCS/ndnwifi" data-toggle="tooltip" data-placement="bottom" title="Using android studio to create an app that lets users chat with others without relying on a wireless router"  target="_blank">NDN wifi</a></li>
+							<li class="list-item col-4 "><a href="https://github.com/hieutranCS/homeAutomation" data-toggle="tooltip" data-placement="bottom" title="A software that lets users control every appliance via smart phone."  target="_blank">HomeAutomation</a></li>
 							<li class="list-item col-4" ><a href="p6.html" data-toggle="tooltip" data-placement="bottom" title="Using d3 to make a bar chart">Bar Chart</a></li>
 							<li class="list-item col-4 "><a href="p7.html" data-toggle="tooltip" data-placement="bottom" title="Using d3 to make a heat map out of the database">Heat Map</a></li>
 							<li class="list-item col-4 "><a href="p8.html" data-toggle="tooltip" data-placement="bottom" title="Using d3 to make a scatter plot">Scatter Plot</a></li>
-
+							<li class="list-item col-4 "><a href="https://nodejs1.glitch.me/" data-toggle="tooltip" data-placement="bottom" title="Using node.js to make an app that converts from unix time stamps to date strings and vice versa"  target="_blank">Time Stamp Converter</a></li>
 						</ul>
 					</div>
-
 				</div>   <!-- class collapse -->
 
 
@@ -166,6 +176,7 @@ body{
 	</div>
 
 	<div class="footer">
+		<input type="button" class="button" value="Default Skin" id="default_button" onclick="document.body.style.cssText+=';background-image: url();background-repeat: no-repeat;background-position: 0 0;background-size: cover;';">
 		<input type="button" class="button" value="Skin 1" id="button1" onclick="document.body.style.cssText+=';background-image: url(animated1.gif);background-repeat: no-repeat;background-position: 0 0;background-size: cover;';">
 		<input type="button" class="button" value="Skin 2" id="button2" onclick="document.body.style.cssText+=';background-image: url(animated2.gif);background-repeat: no-repeat;background-position: 0 0;background-size: cover;';">
 		<input type="button" class="button" value="Skin 3" id="button3" onclick="document.body.style.cssText+=';background-image: url(animated3.gif);background-repeat: no-repeat;background-position: 0 0 ;background-size: 100% 100%;';">
