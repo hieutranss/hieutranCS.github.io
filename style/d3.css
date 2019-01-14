@@ -1,0 +1,47 @@
+
+body {
+  text-align: center;
+  font-family: "Helvetica", sans-serif;
+  padding-top: 50px;  
+}
+
+#tooltip {
+  position: absolute;
+  padding: 0 10px;
+  pointer-events: none;
+  background-color: white;
+  color: red;
+  line-height: 20px;
+  border-radius: 6px; 
+  stroke: black;
+  stroke-width: 5px;
+}
+
+.name-size {
+ font: 10px sans-serif;
+ 
+}
+
+.button{
+ margin-right: 20px;
+ margin-left: 20px;
+ font-size : 20px;
+}
+
+#title, #title_TreeMap{
+  margin-bottom: 20px;
+  font: 20px  fantasy;
+}
+
+#description,#description_TreeMap{
+  font: 20px  cursive;
+}
+
+#mainChoropleth{
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+#mainTop{
+  padding-bottom: 100px;
+}

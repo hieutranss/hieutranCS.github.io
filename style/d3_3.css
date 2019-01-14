@@ -1,0 +1,64 @@
+body {
+  text-align: center;
+  font-family: "Helvetica", sans-serif;
+  padding-top: 50px;  
+}
+
+
+.domain {
+  stroke: #62D2E7;
+}
+
+.bar{
+  fill : lightsteelblue;
+}
+
+.bar:hover {
+  fill: orangered ;
+}
+
+
+#tooltip {
+  position: absolute;
+  padding: 0 10px;
+  pointer-events: none;
+  background-color: white;
+  color: red;
+  line-height: 20px;
+  border-radius: 6px; 
+  stroke: black;
+  stroke-width: 5px;
+}
+
+.cell:hover{
+  stroke: black;
+  stroke-width: 2px;
+}
+
+#tooltipScatter{
+      line-height: 1;
+      padding: 6px;
+      background: black;
+      color: #fff;
+      border-radius: 4px;
+      font-size: 20px;
+}
+
+
+#mainTop{
+  padding-bottom: 100px;
+}
+
+#title{
+	 font: 20px fantasy;
+}
+
+#heatDes{
+  font: 20px cursive;
+}
+
+#mainHeatMap{
+	 margin-top: 100px;
+  margin-bottom: 100px;
+}
+

@@ -1,51 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Scatterplot</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-<link rel="icon" type="image/jpg"  href="icon.jpg">
-
-  </head>
-
-<style >
-
-body {
-    text-align: center;
-    font-family: "Helvetica", sans-serif;
-  padding-top: 50px;  
-  }
- 
-
-.domain {
-  stroke: black;
-} 
-
-#tooltip{
-      line-height: 1;
-      padding: 6px;
-      background: black;
-      color: #fff;
-      border-radius: 4px;
-      font-size: 20px;
-}
-
-
-
-</style>
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-dom.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.5.1/marked.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.5.1/marked.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.5.1/marked.min.js.map"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
-<script src="https://d3js.org/d3.v4.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
-
-
-<script style="text/babel">
+function scatterPlot() {
 
  var url = 'https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/cyclist-data.json'
 
@@ -56,7 +9,7 @@ var margin = 40,
 
 d3.json(url, function(data) {
 
-var chart = d3.select('.holder')
+var chart = d3.select('.holderScatter')
   .append('svg')
   .attr('width', 1100)
   .attr('height', 600)
@@ -120,7 +73,7 @@ var yLabel = chart.append("text")
       .text("Time in Minutes")
 
 var tip = d3.tip()
-  .attr('id', 'tooltip')
+  .attr('id', 'tooltipScatter')
   .offset([-8, 0])
   .direction('e')
   .html(function(d,i) {
@@ -194,25 +147,4 @@ var text = chart.append('a')
                 .style("font-size", "20px")
                 .attr('transform','translate(500,570)')
 })
-
-</script>
-
-<body>
-
-<div class="main">
- <div class='container'>
-    <div id='title'> Visualize Data with a Scatterplot Graph of Doping </div>
-    <br>
-    <div class='holder'></div>
-  </div>
-      <button class="btn center-block btn-lg"  id="button"><a href="index.html"><h2>Home</h2></a></button> 
-</div>
-
-
-
- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
- </body>
-</html>
+}
