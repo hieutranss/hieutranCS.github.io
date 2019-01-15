@@ -144,6 +144,8 @@ if( this.state.result != 0  || this.state.currentNum1 != '0'){
 
    return(
    <div className="calculator">
+
+
   <div id="history">{history}</div>
   <div id="display">{result}</div>
 
@@ -171,7 +173,6 @@ if( this.state.result != 0  || this.state.currentNum1 != '0'){
 
     <button className="button is-equals" id="equals" onClick={this.regisEqu}  value='='>=</button>
   </div>
-    <button className="btn btn-outline-dark"><a href="index.html">Home</a></button> 
 </div>
    )
 }
@@ -187,6 +188,12 @@ ReactDOM.render(
 
 <body>
 
+ <nav class="navbar fixed-top navbar-expand-lg navbar-light">
+  <div  class="navbar-nav mx-auto">
+ <a class="navbar-brand active" href="index.html">Home</a>   
+</div>
+</nav>
+<br>
 <div id="root"> </div>
 
  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
