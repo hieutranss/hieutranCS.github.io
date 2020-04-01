@@ -1,0 +1,22 @@
+/* GENERAL STYLES */
+#reddit-app, body {
+    background: #efefef;
+}
+
+html, body{
+	margin: 10px;
+}
+
+.jumbotron {
+background-image: url("https://i.redd.it/13bebv6n8xr31.gif") ; 
+background-position:  center;
+background-repeat: no-repeat;
+}
+
+.display-4{
+color:  #00cc00;
+}
+
+.lead{
+color:  #8080ff;
+}
