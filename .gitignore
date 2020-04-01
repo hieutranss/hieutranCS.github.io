@@ -3,3 +3,6 @@ debug.log
 passwordGenerator.html
 script/test.js
 style/test.css
+chat-app/node_modules/.bin/is-ci
+chat-app/package-lock.json
+*.json
