@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Profile Page</title>
+	<meta name="viewport" content="width=device-width; initial-scale=1.0">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<link rel="icon" type="image/jpg"  href="./style/icon.jpg">
 	<link rel="stylesheet" href="./style/index.css">
@@ -18,16 +19,15 @@
 		<div class="container">
 			<div class="text-center"> 
 				<p id="intro"> Welcome! </p>
-				<h4 style="color: red; font-weight: bold; font-size: 20px;"><br><a href="https://github.com/hieutranCS" target="_blank">GitHub link</a>
-  </h4>
+				<h4 style="color: red; font-weight: bold; font-size: 20px;"><br><a href="https://github.com/hieutranCS" target="_blank">GitHub link</a></h4>
 				<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseProfile" aria-expanded="false" aria-controls="collapseProfile">About</button>
 				<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseProjects" aria-expanded="false" aria-controls="collapseProjects">Projects</button>
 
 				<div class="main-containter collapse in" id="collapseProfile"><br>
 					<p id="about">
-					Hello, My name is Hieu. I build lots of small projects to learn and improve my skills.
+					Hello, My name is Hieu. I like to build websites to learn and improve my skills.
+					<br>I use both java and javascript for my projects.
 					<br>In my spare time, I love to play video games. 
-					<br>Please feel free to contact me at hieutran16995@gmail.com.
 					<br>Thank you for your time.						   
 					</p>  
 				</div>
@@ -59,13 +59,20 @@
 				</div>   
 			</div>
 		</div>
+
+
+		
 	</div>
 
 	<div class="footer">
-		<input type="button" class="button" value="Default Skin" id="default_button" onclick="document.body.style.cssText+=';background-image: url();background-repeat: no-repeat;background-position: 0 0;background-size: cover;';">
+	<!--	<input type="button" class="button" value="Default Skin" id="default_button" onclick="document.body.style.cssText+=';background-image: url();background-repeat: no-repeat;background-position: 0 0;background-size: cover;';">
 		<input type="button" class="button" value="Skin 1" id="button1" onclick="document.body.style.cssText+=';background-image: url(./gifs/animated1.gif);background-repeat: no-repeat;background-position: 0 0;background-size: cover;';">
 		<input type="button" class="button" value="Skin 2" id="button2" onclick="document.body.style.cssText+=';background-image: url(./gifs/animated2.gif);background-repeat: no-repeat;background-position: 0 0;background-size: cover;';">
 		<input type="button" class="button" value="Skin 3" id="button3" onclick="document.body.style.cssText+=';background-image: url(./gifs/animated3.gif);background-repeat: no-repeat;background-position: 0 0 ;background-size: 100% 100%;';">
+	-->
+	<div id="footer_id"> Hieu Tran 
+	 <br>626-478-8962 
+	 <br>hieutran16995@gmail.com </div>
 	</div>
  
 	<script type="text/javascript">
