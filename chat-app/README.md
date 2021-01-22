@@ -1,1 +1,1 @@
-<h3>A Chat App Demo for everyone who logged in the chat room.</h3>
+<h3>A Chat App Demo that lets everyone talks to each other in the chat room.</h3>
