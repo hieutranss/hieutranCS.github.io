@@ -1,4 +1,4 @@
-# Custome-App-with-Node.js-And-Vue.js
+# Custom-App-with-Node.js-And-Vue.js
 # Node Server Requirements
  
 - Responsible for serving the Vue frontend. - Responsible for data. Meaning delivering data from API or databases, maintaining data between users, etc.
