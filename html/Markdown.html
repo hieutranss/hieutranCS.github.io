@@ -1,127 +1,91 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Previewer</title>
-<link rel="icon" type="image/jpg"  href="icon.jpg">
+  <title>Previewer</title>
+  <link rel="icon" type="image/jpg"  href="icon.jpg">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="../style/mark_down.css">
 
-<style>
-
-body, html {
-  height: 90%;
-}
-
-    .left {
-        float: left;
-        width: 100%;
-        padding: 50px;
-        min-width: 500px;
-        min-height: 700px;
-  resize: none;
-    }
-
-    .right {
-        float: right;
-        width: 100%;
-min-height: 700px;
-  resize: none;
-    }
-
-.rowButton{
- display: grid;
-  grid-template-columns: 100px 100px 100px;
-  grid-gap: 10px;
-   padding-left : 700px;
-}
-
-a{
-  font-size:30px;
-}
-
-</style>
-
- 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-dom.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.5.1/marked.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.5.1/marked.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-dom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.5.1/marked.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.5.1/marked.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.5.1/marked.min.js.map"></script>
 
- <script type="text/babel">
+<script type="text/babel">
 
-class Control extends React.Component {
+  class Control extends React.Component {
   constructor(props) {
-    super(props);
-    this.state = {
-    markdown: placeholder
-    };
+  super(props);
+  this.state = {
+  markdown: placeholder
+};
 
-    this.handleChange = this.handleChange.bind(this);
-  }
+this.handleChange = this.handleChange.bind(this);
+}
 
-  handleChange(event) {
-    this.setState({
-    markdown: event.target.value
-  });
-  }
+handleChange(event) {
+this.setState({
+markdown: event.target.value
+});
+}
 
- 
-  render() {
 
-    return (
-     
-   <div>
+render() {
+
+return (
+
+<div>
 
 
  <nav class="navbar fixed-top navbar-expand-lg navbar-light">
-  <a class="navbar-brand" href="index.html">Home</a>
-</nav>
-  
+ </nav>
 
-    <div className="row">
-        <div className="col-md-6 col-xs-12">
- <h1 className="text-center">Editor </h1>
-     <Editor markdown={this.state.markdown} 
-     onChange={this.handleChange} />
-   </div>
+
+ <div className="row">
   <div className="col-md-6 col-xs-12">
-          <h1 className="text-center">Previewer</h1>
-           <Preview  markdown={this.state.markdown}  />
-        </div>
-   </div>
+   <h1 className="text-center">Editor </h1>
+   <Editor markdown={this.state.markdown} 
+   onChange={this.handleChange} />
+ </div>
+ <div className="col-md-6 col-xs-12">
+  <h1 className="text-center">Previewer</h1>
+  <Preview  markdown={this.state.markdown}  />
+</div>
+</div>
 </div>
 
 
-    );
-  }
+);
+}
 }
 
 marked.setOptions({
-  breaks: true
+breaks: true
 });
 
 const renderer = new marked.Renderer();
 renderer.link = function (href, title, text) {
-  return `<a target="_blank" href="${href}">${text}` + '</a>';
+return `<a target="_blank" href="${href}">${text}` + '</a>';
 }
 
 const Editor = (props) => {
-  return (
-     <textarea className="left" id="editor" 
+return (
+<textarea className="left" id="editor" 
 value={props.markdown}
-      onChange={props.onChange}
-      type="text"
-      />
-    )
+onChange={props.onChange}
+type="text"
+/>
+)
 }
 
 const Preview = (props) => {
-  return (
- <div className="right"  id="preview" readOnly dangerouslySetInnerHTML={{__html: marked(props.markdown, { renderer: renderer })}}
- />
-    )
+return (
+<div className="right"  id="preview" readOnly dangerouslySetInnerHTML={{__html: marked(props.markdown, { renderer: renderer })}}
+/>
+)
 }
 
 
@@ -130,19 +94,19 @@ const placeholder = `# Welcome to my React Markdown Previewer!
 
 ## This is a sub-heading...
 ### And here's some other cool stuff:
-  
+
 Heres some code, \`<div></div>\`, between 2 backticks.
 
 \`\`\`
 // this is multi-line code:
 
 function anotherExample(firstLine, lastLine) {
-  if (firstLine == '\`\`\`' && lastLine == '\`\`\`') {
-    return multiLineCode;
-  }
+if (firstLine == '\`\`\`' && lastLine == '\`\`\`') {
+return multiLineCode;
+}
 }
 \`\`\`
-  
+
 You can also make text **bold**... whoa!
 Or _italic_.
 Or... wait for it... **_both!_**
@@ -159,9 +123,9 @@ Your content can | be here, and it | can be here....
 And here. | Okay. | I think we get it.
 
 - And of course there are lists.
-  - Some are bulleted.
-     - With different indentation levels.
-        - That look like this.
+- Some are bulleted.
+- With different indentation levels.
+- That look like this.
 
 
 1. And there are numbererd lists too.
@@ -176,32 +140,32 @@ And here. | Okay. | I think we get it.
 
 
 ReactDOM.render(
-  <Control />,
-  document.getElementById('root')
+<Control />,
+document.getElementById('root')
 );
 
-    </script>
+</script>
 
-   
+
 
 
 </head>
 
 <body> 
 
-<div id="root">
+  <div id="root">
 
 
 
 
-</div>
+  </div>
 
 
 
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 
 </body>

@@ -1,0 +1,32 @@
+    body, html {
+      height: 90%;
+      padding-top: 20px; 
+    }
+
+    .left {
+      float: left;
+      width: 100%;
+      padding: 50px;
+      min-width: 500px;
+      min-height: 700px;
+      resize: none;
+    }
+
+    .right {
+      float: right;
+      width: 100%;
+      min-height: 700px;
+      resize: none;
+    }
+
+    .rowButton{
+     display: grid;
+     grid-template-columns: 100px 100px 100px;
+     grid-gap: 10px;
+     padding-left : 700px;
+   }
+
+   a{
+    font-size:30px;
+  }
+

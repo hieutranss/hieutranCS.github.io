@@ -3,66 +3,11 @@
   <head>
     <title>Pomodoro Clock</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-<link rel="icon" type="image/jpg"  href="icon.jpg">
+  <link rel="stylesheet" href="../style/pomodoro.css">
+
 
   </head>
 
-<style >
-
-body {
-  background: #F6F6F6;
-  padding-bottom: 30px;
-  padding-top: 100px;  
-}
-.clock   {
-  max-width: 600px;
-  margin: 0 auto;
-  border: 2px solid #111;
-  border-radius: 5px;
-}
-
-.main-clock {
-  padding: 50px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 20px;
-}
-
-.inner   {
-  grid-column: span 2;
-}
-
-.inner-show{
-  grid-column: span 4; 
-   text-align: center;
-}
-
-.inner-bottom{
-   grid-column: span 5; 
-}
-
-.title{
-  padding-top: 15px;
-  text-align:center;
-}
-
-#inner-break{
-  padding-left : 30px
-}
-
-#inner-session{
-  padding-left : 30px
-}
-
-.btn-outline-dark{
-padding: 10px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 15px;
-  margin: 0 auto;
-}
-
-</style>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react.js"></script>
@@ -280,7 +225,7 @@ constructor(props) {
    </div>
 </div>
         <div id="timer-label" className="inner-show" style={{backgroundColor:this.state.nameColor}}> 
-           <audio id="beep" preload="auto" src="beep.mp3"
+           <audio id="beep" preload="auto" src="../style/beep.mp3"
            ref={(audio) => { this.audioBeep = audio; }} /> 
          <div id="timer-label" > {this.state.name}  </div>
          <div id="timer-left"> {clock} </div>
@@ -310,11 +255,6 @@ ReactDOM.render(
 
 <body>
 
- <nav class="navbar fixed-top navbar-expand-lg navbar-light">
-  <div id="navbarNavAltMarkup " class="navbar-nav mx-auto">
-    <a class="navbar-brand" href="index.html">Home</a>
-</div>
-</nav>
 
 
 <div id="root"> </div>
