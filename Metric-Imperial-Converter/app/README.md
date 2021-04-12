@@ -2,7 +2,7 @@ Metric-Imperial Converter
 
 Write the following tests in tests/1_unit-tests.js:
 
-convertHandler should correctly read a whole number input.
+convertHandler should correctly read a whole number input.<br>
 convertHandler should correctly read a decimal number input.
 convertHandler should correctly read a fractional input.
 convertHandler should correctly read a fractional input with a decimal.
