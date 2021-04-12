@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+
+   <head>
+      <title>URL Shortener</title>
+      <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+      <link href="style.css" rel="stylesheet" type="text/css">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+          <script src="url.js" type="text/javascript"></script> 
+
+   </head>
+
+   <body>
+      <div class="container" >
+        <h2>API Project: URL Shortener Microservice</h2>
+        <ol class="guide">
+          <li>POST a URL to <code>[project_url]/api/shorturl/new</code> to receive a shortened URL in the JSON response.<br>Example : <code>{"original_url":"www.google.com","short_url":1}</code></li>
+          <li>Pass an invalid URL that doesn't follow the <code>http(s)://www.example.com(/more/routes)</code> format, the JSON response will contain an error like <code>{"error":"invalid URL"}</code><br></li>
+          <li>When visit the shortened URL, it will redirect to the original link.</li>
+        </ol>
+        <h3>Short URL Creation </h3>
+       
+        
+          <form id="urlForm" class="border">
+        <input type="text" id="createForm" name="input"  placeholder="enter url">
+        <input  id="submitURL" type="submit" value="Convert">
+      </form>
+                 
+          <form id="redirectForm" class="border">
+        <input type="text" id="urlInput" name="inputId"  placeholder="enter short url">
+        <input id="url" type="submit" value="Submit">
+      </form>
+        
+     <form id="allURL" class="border">
+       <input  type="submit" value="Get All URLs">
+        </form>
+                
+        <div>
+            <p id="urlResult" ></p>
+        </div>
+        
+      </div>
+   </body>
+
+
+</html>
