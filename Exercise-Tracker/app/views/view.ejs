@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exercise Tracker</title>
+  <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <div class="container">
+     <h1>Exercise tracker</h1>
+
+      <form action="/api/exercise/new-user" method="post" id="get">
+        <h3>Create a New User</h3>
+        <input id="username" type="text" name="username" placeholder="username">
+        <input type="submit"   name="post" value="Submit">
+      </form>
+
+    <form action="/api/exercise/add" method="post" id="getAdd">
+        <h3>Add exercises</h3>
+        <input id="id" type="text" name="id" placeholder="id*">
+        <input id="description" type="text" name="description" placeholder="description*">
+        <input id="duration" type="text" name="duration" placeholder="duration* (mins.)">
+        <input id="date" type="text" name="date" placeholder="date">
+        <input type="submit" value="Submit">
+      </form>
+
+        <form action="/api/exercise/log" method="get">
+          <h3>Search for logs</h3>
+         <input id="id" type="text" name="id" placeholder="id*">
+        <input id="from" type="text" name="from" placeholder="date from (optional)">
+        <input id="to" type="text" name="to" placeholder="date to (optional)">
+        <input id="limit" type="text" name="limit" placeholder="limit number of logs to view (optional)">
+        <input type="submit" value="Submit" id="button_log">
+      </form>
+
+    <form action="/api/exercise/users" method="post" id="display">
+        <h3>Display</h3>
+        <input type="submit" name="displayUser"   id="displayUser" value="All users">
+         <input type="submit" name="displayLogs"  id="displayLogs" value="All logs">
+      </form>
+
+     <form action="/api/exercise/userdelete" method="post" id="delete_user">
+       <h3>Insert user id to delete user and logs.</h3> 
+        <h3> Insert exercise id to delete a log.</h3>
+       <input id="id" type="text" name="id" placeholder="id*">
+        <input type="submit" name="deleteAll"  value="Delete user and logs">
+          <input type="submit"  name="deleteLog" value="Delete user logs only">
+      </form>
+
+<div id="output">
+<table>
+<% for(var i in TEMP) { %>
+ <p><%= JSON.stringify(TEMP[i]) %></p>
+<% } %>
+</table>
+</div>
+
+  </div>
+  
+</body>
+</html>

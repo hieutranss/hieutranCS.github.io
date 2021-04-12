@@ -1,0 +1,96 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family:sans-serif;
+  margin: 25px;
+  margin-top:50px;
+  color: #222;
+  background-color: #f5f5f5;
+}
+
+h1 {
+  
+  font-weight: bold;
+  text-align: center;  
+}
+
+.bold {
+  font-weight: bold;
+}
+
+p {
+  max-width: 900px;
+}
+
+form {
+  margin-bottom: 25px;
+  padding: 15px;
+  background-color: #14F0DC;
+  display: inline-block;
+  width: 100%;
+  max-width: 310px;
+  border-radius: 5px;
+}
+
+#get{
+  padding: 15px;
+  background-color: #14F0DC;
+  display: inline-block;
+  width: 100%;
+  max-width: 200px;
+  border-radius: 5px;
+}
+
+p{
+ font-size:25px; 
+}
+
+#delete_user{
+    max-width: 260px;
+
+}
+
+#displayUser, #displayLogs {
+  width: 80px;
+}
+
+#display{
+ width: 130px; 
+}
+
+#getAdd{
+ width:270px; 
+}
+
+input {
+  display: block;
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 100%;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+input[type=submit] {
+  font-size: 16px;
+  border-radius: 3px;
+  background-color: #E4F1FE;
+  border: 1px solid grey;
+  box-shadow: 2px 2px #999;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #FFFEC4;
+}
+
+code {
+  font-family: monospace;
+  font-size: 1.2em;
+  background-color: #FFFEC4;
+  padding: 2px;
+}
