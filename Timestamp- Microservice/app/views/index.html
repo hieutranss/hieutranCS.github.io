@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Timestamp Microservice</title>
+           <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+       <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./public/style.css">
+   </head>
+   <script src="https://code.jquery.com/jquery-2.2.1.min.js"
+            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
+            crossorigin="anonymous"></script>
+ <script>
+      $(function() {
+        $('#convertForm').submit(function() {
+          event.preventDefault();
+          $.ajax({
+            url: '/api/timestamp',
+            type: 'get',
+            data: $('#convertForm').serialize(),
+            success: function(data) {
+              $('#jsonResult').text(JSON.stringify(data));
+            }
+          });
+        });
+      });
+   </script>
+   <body>
+      <div class="container">
+        <h2>Timestamp Microservice</h2>
+        <ol class="guide">
+          <li>A date string is valid if can be successfully parsed by <code>new Date(date_string)</code>.<br></li>
+          <li>If the date string is <strong>empty</strong> it should be equivalent to trigger <code>new Date()</code>, i.e. the service uses the current timestamp.</li>
+          <li>If the date string is <strong>valid</strong> the api returns a JSON having the structure<br><code>{"unix": &lt;date.getTime()&gt;, "utc" : &lt;date.toUTCString()&gt; }</code><br></li>
+          <li>If the date string is <strong>invalid</strong> the api returns a JSON having the structure <br>
+              <code>{"unix": null, "utc" : "Invalid Date" }</code>.</li>
+          <li>This app can convert from a date string (2015-12-25) to an unix time stamp or from an unix time stamp(1450137600) to a date string</li>
+        </ol>
+       <form id="convertForm" class="border">
+        <input type="text" id="convertField" name="input" style="width: 200px">
+        <input id="convert" type="submit" value="Convert">
+      </form>
+        <div>
+            <p id="jsonResult" ></p>
+        </div>
+       
+      </div>
+   </body>
+</html>
