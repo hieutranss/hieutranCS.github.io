@@ -1,0 +1,28 @@
+
+body {
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	color: #222;
+	background-color: #ECF0F1;
+	text-align: center;
+}
+
+li{
+ padding-bottom: 10px; 
+}
+
+ol {
+	list-style-position: inside;
+}
+ul {
+	list-style-type: none;
+}
+
+h1{
+ padding-top: 20px; 
+}
+
+#testui{
+  margin-top: 30px;
+ margin-left: 5%; 
+}

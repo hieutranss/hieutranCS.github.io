@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Metric Converter</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./public/style.css">
+  </head>
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"
+            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
+            crossorigin="anonymous"></script>
+  <body>
+    <header>
+      <h1>Metric Converter</h1>
+    </header>
+    <div>
+      <ol>
+        <li>Can convert 'gal' to 'L' and vice versa. <b>(1 gal to 3.78541 L)</b></li>
+        <li>Can convert 'lbs' to 'kg' and vice versa. <b>(1 lbs to 0.453592 kg)</b></li> 
+        <li>Can convert 'mi' to 'km' and vice versa. <b>(1 mi to 1.60934 km)</b></li>
+        <li>If the unit of measurement is invalid, returned will be 'invalid unit'.</li>
+        <li>If the number is invalid, returned with will 'invalid number'.</li>
+        <li>If both are invalid, return will be 'invalid number and unit'.</li>
+        <li>Can use fractions, decimals or both in my parameter(ie. 5, 1/2, 2.5/6), but if nothing is provided it will default to 1.</li>
+      </ol>
+        <h3>Example usage:</h3>
+        <code>10L &gt 10 litres converts to 2.6417217685798895 gallons</code><br>
+        <code>32g &gt invalid number and unit</code><br>
+        <code>3/7.2/4kg &gt invalid number</code><br>
+        <code>3/7.2/4kilomegagram &gt invalid number and unit</code><br>
+        <code>kg &gt 1 kilograms converts to 2.2046244201837775 pounds</code><br>
+    </div>
+    <div id="testui">
+      <form id="convertForm" class="border">
+        <input type="text" id="convertField" name="input" style="width: 200px">
+        <input id="convert" type="submit" value="Convert">
+      </form>
+      <p id="result"></p>
+      <code id="jsonResult"></code>
+    </div>
+    <script>
+      $(function() {
+        $('#convertForm').submit(function() {
+          event.preventDefault();
+          $.ajax({
+            url: '/api/convert',
+            type: 'get',
+            data: $('#convertForm').serialize(),
+            success: function(data) {
+              if(JSON.stringify(data).length >= 100){
+              $('#result').text(data.string || data)
+              $('#jsonResult').text(JSON.stringify(data))
+              }
+              else{  
+                $('#result').text(data.string || data)
+               $('#jsonResult').text("")
+              } 
+            }
+          })
+        })
+      })
+   </script>
+  </body>
+</html>
