@@ -11,8 +11,7 @@ Socket messages should go through the server.
 
 
  # Vue Requirements
-App & Components The Vue frontend should have at least (1) component.
-
+ 
 CSS The Vue frontend should be styled. Use a css framework (bootstrap, materilize) or create your own custom styles.
 
 HTML Use HTML5. Proper indentations. Ensure all html elements are properly closed.
