@@ -1,0 +1,32 @@
+doctype html
+html
+  head
+    title File Metadata
+    link(href='https://fonts.googleapis.com/css?family=Roboto', rel='stylesheet', type='text/css')
+    link(href='/public/style.css', rel='stylesheet', type='text/css')
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+  body
+    .container
+      h2 File Metadata Microservice
+      ol
+        li Submit a form object that includes a file upload.
+        li Display the file name, and size in bytes.
+        li Able to display images with ( .jpg , .gif , .png , .jpge ) extension and text files ( .txt).
+        li After 10-15 seconds, the file will be deleted.
+      .view
+        h4#output
+        form#form(enctype='multipart/form-data', method='post', action='/file')
+          input#file(type='file', name='upfile')
+          input#button(type='submit', value='Upload' , onclick="test()")                
+
+      #result
+       h3=error
+       h3=name
+       h3=type
+       h3=size
+       img(src=location)
+       p(style="white-space:pre-line;")=text
+       
+                
