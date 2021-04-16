@@ -5,7 +5,7 @@ User can view the weather by city name.<br>
 User well see temperature unit in Celsius and Fahrenheit.<br>
 Weather icon or background image will change depending on weather conditions.
 
-Demo link:    <a href=" https://weatherdemo.htcs.repl.co/" target="_blank">Weather Demo</a>
+Demo link:    <a href="https://weatherdemo.htcs.repl.co/" target="_blank">Weather Demo</a>
 
 
 The project used JavaScript.<br>
