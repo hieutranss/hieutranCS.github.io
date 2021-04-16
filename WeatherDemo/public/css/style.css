@@ -1,0 +1,51 @@
+* {
+  margin: 10;
+  padding: 10;
+  box-sizing: border-box;
+ 
+}
+
+body {
+  font-family: 'Lora', serif;
+}
+
+.container{
+height: 90vh;
+width: 80yw;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+background: hsla(64, 100%, 53%, 0);
+}
+
+.display{
+display: flex;
+align-items: center;
+justify-content: center;
+font-family: "Helvetica Neue", "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
+font-size: 25px;
+color: rgba(17, 14, 11, 0.781);
+}
+
+.inputBox{
+font-size: 1.2rem;
+font-style: italic;
+padding:0.5em 3em;
+font-display: center;
+border:0.16em solid #FFFFFF;
+margin:0 0.3em 0.3em 0;
+box-sizing: border-box;
+height: 3em;
+}
+
+.button{
+display:inline-block;
+padding:0.5em 3em;
+border:0.16em solid #FFFFFF;
+margin:0 0.3em 0.3em 0;
+box-sizing: border-box;
+font-size: 1rem;
+text-decoration:none;
+text-transform:uppercase;
+}
