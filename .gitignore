@@ -8,3 +8,5 @@ chat-app/package-lock.json
 *.json
 *.gif
 Exercise-Tracker/app/.env
+*.js
+style/passwordTest.css
