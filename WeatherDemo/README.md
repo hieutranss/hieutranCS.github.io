@@ -12,5 +12,5 @@ The project used JavaScript.<br>
 Used express to write handlers for requests with different HTTPs at different URL paths.<br>
 Used ejs as a template to generate HTML markup with plain JavaScript.<br>
 Used request to get data from <a href="https://openweathermap.org/api" target="_blank">openweathermap</a> and then render the requested data to ejs, and display it.<br>
-Since replit.com will not keep the project running constantly, I use <a href="https://uptimerobot.com " target="_blank">uptimerobot</a> to keep the project alive for testing purposes.
+Since replit.com will not keep the project running constantly, I used <a href="https://uptimerobot.com " target="_blank">uptimerobot</a> to keep the project alive for testing purposes.
 </p>
