@@ -5,7 +5,6 @@ script/test.js
 style/test.css
 chat-app/node_modules/.bin/is-ci
 chat-app/package-lock.json
-*.json
 *.gif
 Exercise-Tracker/app/.env
 *.js
