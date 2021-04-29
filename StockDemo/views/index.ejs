@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	 <meta charset="UTF-8">
+   <meta http-equiv="="X-UA-Compatible" content="IE-edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel='stylesheet' href='./css/style.css' />
+	<title >Stock Demo</title>
+</head>
+
+<body> 
+	<h1 class='heading'>Stock Demo</h1>
+  <form action="/" method="post">
+	<input class='inputBox' name="symbol" type='text' placeholder='Enter a stock symbol' required>
+	<input class='search-button' type='submit' id='btn' value='Search'/>
+  </form>
+
+<div id="result">
+<% if(stock !== null){ %>
+  <% if(stock.size > 1) { %>
+     <ul>
+       <% stock.forEach(function(key,value){   %>
+      <ul> <%= value  %>:      <%= key %>    </ul>
+          <% }) %>
+          <br>
+          <a href=<%= chart %> target="_blank"><%=name%> Chart</a>
+      </ul>
+      <% } else { %>
+       <ul> <%= stock %> </ul>
+      <% } %>
+        <% } %>
+</div>
+
+</body>
+</html>
