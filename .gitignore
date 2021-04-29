@@ -7,5 +7,4 @@ chat-app/node_modules/.bin/is-ci
 chat-app/package-lock.json
 *.gif
 Exercise-Tracker/app/.env
-*.js
 style/passwordTest.css
