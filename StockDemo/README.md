@@ -1,7 +1,7 @@
 <h4> Stock App </h4>
 
 <p>
-User input a stock symbol to get all info of the stock.<br>
+Users input a stock symbol to get all info of the stock.<br>
 Cryptocurrencies are currently not supported.<br>
 There will be a chart from yahoo finance if the user wants to know more about the stock.
 
