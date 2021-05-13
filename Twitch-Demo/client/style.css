@@ -1,5 +1,4 @@
-/* GENERAL STYLES */
-#reddit-app, body {
+body {
     background: #efefef;
 }
 
@@ -9,14 +8,17 @@ html, body{
 
 .jumbotron {
 background-image: url("https://media.giphy.com/media/S9oOiPA3AlyO3FHc8D/giphy.gif") ; 
-background-position:  center;
+background-position:  center center;
+height:250px;
 background-repeat: no-repeat;
+background-size: auto 100%;
+border-bottom:1px solid #0e0d0d
 }
 
-.display-4{
-color:  #00cc00;
+.card-header{
+  text-align: center;
 }
 
-.lead{
-color:  #8080ff;
+.form-control{
+  text-align: center;
 }
