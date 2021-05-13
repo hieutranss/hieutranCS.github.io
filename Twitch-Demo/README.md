@@ -1,9 +1,11 @@
 <h4> Twitch.tv App </h4>
 
 <p>
-User can view top trending games.<br>
-User can view a list of games that match the query either entirely or partially.<br>
-User can view a list of channels that match the channel name either entirely or partially.The results include both live and offline channels.
+Users can view top trending games.<br>
+Users can view a list of games that match the query either entirely or partially.<br>
+Users can view a list of channels that match the channel name either entirely or partially.The results include both live and offline channels.<br>
+Users can view a list of active streams. Streams are returned sorted by number of current viewers, in descending order.<br>
+Users can watch live streams with Embedding live streams in a non-interactive frame.
 </p>
 
 Demo link:    <a href="https://tvdemo.htcs.repl.co/" target="_blank">Twitch.tv Demo</a>
