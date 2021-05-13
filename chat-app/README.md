@@ -1,7 +1,7 @@
-<h2>A Chat App Demo that lets everyone talks to each other in the chat room.</h2><br>
-<p>Add a feature so that Usernames are unique (case insensitive).
-  - Make this check on unique usernames on the server side.
-  - Have the server emit a new message 'failed-join'
+<h2>A Chat App Demo that lets everyone talks to each other in the chat room.</h2>
+<p>Add a feature so that Usernames are unique (case insensitive).<br>
+  - Make this check on unique usernames on the server side.<br>
+  - Have the server emit a new message 'failed-join'<br>
   - When this message is emitted to the client display an error on the client that the username already exists.
  </p>
 
