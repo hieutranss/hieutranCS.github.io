@@ -1,9 +1,9 @@
 <h4> Web Speech API App</h4>
 
 <p>
-Users can select different voices to speak the utterance.
-Users can adjust voice volume, pitch and rate.
-Users can pause and resume the speech. 
+Users can select different voices to speak the utterance.<br>
+Users can adjust voice volume, pitch and rate.<br>
+Users can pause and resume the speech. <br>
 </p>
 
 Demo link:    <a href="https://ttsapi.htcs.repl.co/" target="_blank">Web Speech Demo</a>
