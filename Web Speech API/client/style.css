@@ -1,0 +1,31 @@
+* {
+	text-align: center;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+	display: grid;
+	grid-template-columns: auto;
+}
+
+.container { 
+    display: flex;
+    justify-content: center;
+    margin-top: 50px; 
+   font-size: 200%;
+   font-weight: bold;
+}
+
+.box {
+ margin-top: 30px; 
+ width: 50%;
+margin:0 auto;
+background: rgba(25, 23, 51, 0.938);
+}
+
+#text-area{
+  font-size: 25px;
+}
