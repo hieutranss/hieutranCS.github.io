@@ -1,20 +1,19 @@
+html{
+	height: 100vh;
+}
+
 body {
 	text-align: center;
 	font-family: "Helvetica", sans-serif;
 	padding-top: 50px;  
-	background-image: url();
+	/*background-image: url();
 	background-repeat: no-repeat;
 	background-position: 0 0;
-	background-size: cover;
+	background-size: cover;*/
+	 margin: 0;
+  height: 100%;
 }
 
-html{
-	height: 100%;
-}
-body{
-	min-height: 100%;
-	margin:0;
-}
 
 #nav li:hover a{
 	color: #AF53EE;
@@ -61,11 +60,12 @@ body{
 
 .footer {
 	 position: fixed;
-    height: 70px;
+    height: 10px;
     bottom: 10px;
     left: 0px;
     right: 0px;
-    margin-bottom: 80px;
+    margin-bottom: 110px;
+    height: 30px;
 }
 
 
