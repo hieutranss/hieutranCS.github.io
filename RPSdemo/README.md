@@ -1,7 +1,7 @@
 <h4> Rock Paper Scissors Game App </h4>
 
 <p>
-Users play against Computer.
+Users play against Computer.<br>
 There is a restart button to play again.
 </p>
 
