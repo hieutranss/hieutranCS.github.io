@@ -9,3 +9,4 @@ chat-app/package-lock.json
 Exercise-Tracker/app/.env
 style/passwordTest.css
 script/passwordTest.js
+*.zip
